@@ -63,7 +63,7 @@ export default function Navbar() {
         show ? "translate-y-0" : "-translate-y-full"
       } bg-white shadow`}
     >
-      <div className="max-w-6xl mx-auto px-4 py-5 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
         {/* Home Icon */}
         <button
           onClick={() => scrollTo("hero")}
