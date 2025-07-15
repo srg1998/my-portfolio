@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex justify-center gap-6 text-2xl mb-4">
+        <div className="flex justify-center items-center gap-6 text-2xl mb-4">
           <a
             href="https://github.com/srg1998"
             target="_blank"
@@ -52,7 +52,7 @@ export default function Footer() {
             href="https://www.kaggle.com/sreerags"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:text-black text-[28px]"
+            className="text-blue-400 hover:text-black text-[50px]"
           >
             <SiKaggle />
           </a>
