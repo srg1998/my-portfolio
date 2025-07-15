@@ -10,7 +10,7 @@ export default function Resume() {
           free to download my resume below.
         </p>
         <a
-          href="/resume.pdf"
+          href="/Sreerag_cv.pdf"
           download
           className="inline-block px-6 py-3 text-white bg-black rounded hover:bg-gray-800 transition"
         >
