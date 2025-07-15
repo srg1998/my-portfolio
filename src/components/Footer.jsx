@@ -4,7 +4,7 @@ import { HiOutlineMail } from "react-icons/hi";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 py-10 mt-20">
+    <footer id="contact" className="bg-gray-100 py-10 mt-20">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-xl font-semibold mb-6">Let's Connect</h2>
 

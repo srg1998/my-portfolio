@@ -42,7 +42,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="min-h-screen bg-white px-4 py-20">
+    <div id="certifications" className="min-h-screen bg-white px-4 py-20">
       <div className="max-w-4xl mx-auto">
         <motion.h2
           className="text-4xl font-bold text-center mb-12"
@@ -75,6 +75,6 @@ export default function Certifications() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
