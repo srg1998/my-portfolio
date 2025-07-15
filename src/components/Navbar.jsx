@@ -63,7 +63,7 @@ export default function Navbar() {
         show ? "translate-y-0" : "-translate-y-full"
       } bg-white shadow`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-4 py-5 flex justify-between items-center">
         {/* Home Icon */}
         <button
           onClick={() => scrollTo("hero")}
@@ -106,7 +106,7 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <ul className="md:hidden flex flex-col items-end px-4 pb-4 gap-4 text-lg font-semibold">
+        <ul className="md:hidden flex flex-col items-end px-4 pb-4 gap-4 text-md font-semibold">
           {sections.map((section) => (
             <li key={section}>
               <button

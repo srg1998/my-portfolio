@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="text-gray-900 scroll-smooth">
+    <div className="text-gray-900 scroll-smooth overflow-x-clip">
       <Navbar />
       <main className="scroll-smooth">
         <section id="hero" className="scroll-mt-20">
