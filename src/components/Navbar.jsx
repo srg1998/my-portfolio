@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { FaHome } from "react-icons/fa";
 
 const sections = [
-  "hero",
   "experience",
   "projects",
   "certifications",
+  "skills",
   "resume",
   "contact",
 ];
@@ -15,20 +17,22 @@ export default function Navbar() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [currentSection, setCurrentSection] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
 
-      // Navbar hide on scroll down
       if (currentY !== lastScrollY) {
         setShow(currentY < lastScrollY);
         setLastScrollY(currentY);
       }
 
-      // Section tracking
       const offset = window.innerHeight / 2;
-      for (let section of sections) {
+
+      const allSections = ["hero", ...sections];
+
+      for (let section of allSections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
@@ -47,20 +51,42 @@ export default function Navbar() {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = 0;
-      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-
+      const y = el.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
+    setMenuOpen(false);
   };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
         show ? "translate-y-0" : "-translate-y-full"
       } bg-white shadow`}
     >
-      <div className="max-w-7xl mx-auto flex justify-end px-4 py-5">
-        <ul className="flex gap-5 text-lg font-semibold">
+      <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+        {/* Home Icon */}
+        <button
+          onClick={() => scrollTo("hero")}
+          className={`text-2xl ${
+            currentSection === "hero"
+              ? "text-black"
+              : "text-gray-500 hover:text-gray-700"
+          }`}
+        >
+          <FaHome />
+        </button>
+
+        {/* Menu Toggle for Mobile */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </button>
+
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex gap-5 text-lg font-semibold">
           {sections.map((section) => (
             <li key={section}>
               <button
@@ -75,9 +101,28 @@ export default function Navbar() {
               </button>
             </li>
           ))}
-         
         </ul>
       </div>
+
+      {/* Mobile Nav */}
+      {menuOpen && (
+        <ul className="md:hidden flex flex-col items-end px-4 pb-4 gap-4 text-lg font-semibold">
+          {sections.map((section) => (
+            <li key={section}>
+              <button
+                onClick={() => scrollTo(section)}
+                className={`transition-colors ${
+                  currentSection === section
+                    ? "text-black"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 }

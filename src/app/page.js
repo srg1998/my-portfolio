@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Resume from "@/components/Resume";
+import Skills from "@/components/Skills";
 import Image from "next/image";
 
 export default function Home() {
@@ -28,12 +29,12 @@ export default function Home() {
           <Certifications />
         </section>
 
-        <section id="resume" className="scroll-mt-20">
-          <Resume />
+        <section id="skills" className="scroll-mt-20">
+          <Skills />
         </section>
 
-        <section id="contact" className="scroll-mt-20">
-          {/* <Contact /> */}
+        <section id="resume" className="scroll-mt-20">
+          <Resume />
         </section>
       </main>
 
