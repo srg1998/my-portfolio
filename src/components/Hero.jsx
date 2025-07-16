@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="text-5xl sm:text-7xl font-bold leading-tight">
             Hi, I’m Sreerag,
             <br />
-            ML and Data Engineer
+            ML and Data Science Intern
           </div>
 
           <motion.div
